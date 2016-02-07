@@ -24,6 +24,31 @@ this.Modal = function(){
 	}
 }
 
+	// public methods
+	Method.prototype.open = function() {
+		_build.call(this);
+		_init.call(this);
+		window.getComputedStyle(this.modal).height;
+		this.modal.className = this.modal.className + (this.modal.offsetHeight > window.innerHeight ? "jsc-open jsc-anchored" : "jsc-open");
+		this.overlay.className = this.overlay.className + "jsc-open";
+	}
+
+	Method.prototype.close = function() {
+		var self = this;
+		this.modal.className = this.modal.className.replace("jsc-open", "");
+		this.overlay.className = this.overlay.className.replace("jsc-open", "");
+
+		this.modal.addEventListener(this.transitionEnd, function(){
+			self.modal.parentNode.removeChild(self.modal);
+		});
+
+		this.overlay.addEventListener(this.transitionEnd, function(){
+			if ( self.overlay.parentNode ) {
+				self.overlay.parentNode.removeChild(self.overlay);
+			}
+		});
+	}
+
 // private methods
 	function _build() {
 		var content, contentHolder, docFrag;
