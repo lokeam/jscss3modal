@@ -1,5 +1,5 @@
 /* base CSS */
-.jscss-overlay
+.jsc-overlay
 {
     position: fixed;
     z-index: 9998;
@@ -20,7 +20,7 @@
     background: rgba(0,0,0,.6);
 }
 
-.jscss-modal
+.jsc-modal
 {
     position: absolute;
     z-index: 9999;
@@ -48,7 +48,7 @@
     background: #fff;
 }
 
-.jscss-modal.jscss-open.jscss-anchored
+.jsc-modal.jsc-open.jscss-anchored
 {
     top: 20px;
 
@@ -59,18 +59,18 @@
             transform: translate(-50%, 0);
 }
 
-.jscss-modal.jscss-open
+.jsc-modal.jscss-open
 {
     opacity: 1;
 }
 
-.jscss-overlay.jscss-open
+.jsc-overlay.jscss-open
 {
     opacity: 1;
 
 }
 
-.jscss-close
+.jsc-close
 {
     font-family: Helvetica,Arial,sans-serif;
     font-size: 24px;
@@ -99,14 +99,14 @@
 
 /* default animations */
 
-.jscss-overlay.fadedrop
+.jsc-overlay.fadedrop
 {
     display: block;
 
     opacity: 0;
 }
 
-.jscss-modal.fadedrop
+.jsc-modal.fadedrop
 {
     top: -300%;
 
@@ -115,7 +115,7 @@
     display: block;
 }
 
-.jscss-modal.fadedrop.jscss-open
+.jsc-modal.fadedrop.jsc-open
 {
     top: 50%;
 
@@ -126,7 +126,7 @@
             transition: 500ms top 500ms ease;
 }
 
-.jscss-modal.fadedrop.jscss-open.jscss-anchored
+.jsc-modal.fadedrop.jsc-open.jsc-anchored
 {
 
     -webkit-transition: 500ms top 500ms ease;
@@ -136,7 +136,7 @@
             transition: 500ms top 500ms ease;
 }
 
-.jscss-overlay.fadedrop.jscss-open
+.jsc-overlay.fadedrop.jsc-open
 {
     top: 0;
 
@@ -149,7 +149,7 @@
     opacity: 1;
 }
 
-.jscss-modal.fadedrop
+.jsc-modal.fadedrop
 {
     -webkit-transition: 500ms top ease;
        -moz-transition: 500ms top ease;
