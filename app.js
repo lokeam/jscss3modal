@@ -36,7 +36,7 @@ this.Modal = function(){
 	Method.prototype.close = function() {
 		var self = this;
 		this.modal.className = this.modal.className.replace("jsc-open", "");
-		this.overlay.className = this.overlay.className.replace("js-open", "");
+		this.overlay.className = this.overlay.className.replace("jsc-open", "");
 
 		this.modal.addEventListener(this.transitionEnd, function(){
 			self.modal.parentNode.removeChild(self.modal);
