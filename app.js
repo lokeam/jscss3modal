@@ -3,12 +3,12 @@
 //constructor
 this.Modal = function(){
 
-	// globals
+// globals
 	this.closeButton = null;
 	this.modal = null;
 	this.overlay = null;
 
-	// option defaults
+// option defaults
 	var defaults = {
 		className: 'fadeDrop',
 		closeButton: true,
@@ -18,13 +18,13 @@ this.Modal = function(){
 		overlay: true
 	};
 
-	// create options by extending defaults with stuff passed in
+// create options by extending defaults with stuff passed in
 	if (arguments[0] && typeof arguments[0] === 'object') {
 		this.options = extendDefaults(defaults, arguments[0]);
 	}
 }
 
-	// public methods
+// public methods
 	Method.prototype.open = function() {
 		_build.call(this);
 		_init.call(this);
@@ -93,15 +93,35 @@ this.Modal = function(){
 		document.body.appendChild(docFrag);
 	}
 
-// utility method to extend defaults with user options
-function extendDefaults(src, properties) {
-	var prop;
-	for (prop in properties) {
-		if (properties.hasOwnProperty(prop)) {
-			source[property] = properties[property];
+	function _extendDefaults(src, properties) {
+		var prop;
+		for (prop in properties) {
+			if (properties.hasOwnProperty(prop)) {
+				src[prop] = properties[prop];
+			}
+		}
+		return src;
+	}
+
+	function _eventInit() {
+		if (this.closeButton) {
+			this.closeButton.addEventListener('click', this.close.bind(this));
+		}
+
+		if (this.overlay) {
+			this.overlay.addEventListener('click', this.close.bind(this));
 		}
 	}
-	return src;
-}
+
+	function _transitionSelect() {
+		var el = document.createElement('div');
+		if (el.style.WebkitTransition) {
+			return 'WebkitTransitionEnd';
+		}
+		if (el.style.OTransition) {
+			return 'OTransitionEnd';
+		}
+		return 'transitionend';
+	}
 
 }());
